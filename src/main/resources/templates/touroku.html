@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+        /* ページ全体のスタイリング */
+        body {
+            padding: 20px;
+        }
+        
+        /* フォームのスタイリング */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+ 
+        /* ボタンのスタイリング */
+        .btn-primary {
+            width: 100%;
+        }
+ 
+        /* 入力エリアのスタイリング */
+        .form-group label {
+            font-weight: bold;
+        }
+ 
+        .form-group input {
+            width: 100%;
+        }
+ 
+        /* 出力エリアのスタイリング */
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form class="form py-4 needs-validation h-adr" method="post" th:action="@{/gakuseihyou/}" th:object="${gakuseihyou}">
+ 
+ 
+    
+ 
+	<div class="row mt-3">
+		<label for="studentnumber" class="col-4 col-form-label text-end">学生番号</label>
+		<div class="col-4">
+			<input type="text" class="form-control" id="studentnumber" name="studentnumber" th:field="*{studentnumber}"
+				th:classappend="${#fields.hasErrors('studentnumber')} ? 'is-invalid' : 'is-valid'" />
+			<div th:if="${#fields.hasErrors('studentnumber')}" th:errors="*{studentnumber}" class="invalid-feedback">
+				errors!</div>
+		</div>
+	</div>
+	
+ 
+ 
+	<div class="row mt-3">
+		<label for="name" class="col-4 col-form-label text-end">名前</label>
+		<div class="col-4">
+			<input type="text" class="form-control" id="name" name="name" th:field="*{name}"
+				th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : 'is-valid'" />
+			<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback">
+				errors!</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="row mt-3">
+		<label for="age" class="col-4 col-form-label text-end">年齢</label>
+		<div class="col-4">
+			<input type="text" class="form-control" id="age" name="age" th:field="*{age}"
+				th:classappend="${#fields.hasErrors('age')} ? 'is-invalid' : 'is-valid'" />
+			<div th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class="invalid-feedback">
+				errors!</div>
+		</div>
+	</div>
+ 
+	<div class="row mt-3">
+		<label for="mail" class="col-4 col-form-label text-end">メールアドレス</label>
+		<div class="col-4">
+			<input type="text" class="form-control" id="mail" name="mail" th:field="*{mail}"
+				th:classappend="${#fields.hasErrors('mail')} ? 'is-invalid' : 'is-valid'" />
+			<div th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}" class="invalid-feedback">
+				errors!</div>
+		</div>
+	</div>
+	
+		<div class="row mt-3">
+		<label for="phone" class="col-4 col-form-label text-end">電話</label>
+		<div class="col-4">
+			<input type="text" class="form-control" id="phone" name="phone" th:field="*{phone}"
+				th:classappend="${#fields.hasErrors('phone')} ? 'is-invalid' : 'is-valid'" />
+			<div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="invalid-feedback">
+				errors!</div>
+		</div>
+		
+	</div>
+ 
+ 
+ 
+ 
+	
+ 
+ 
+         <input type="submit" class="btn btn-primary"value="登録"/>
+         
+          
+ 
+        </form>	
+ 
+</body>
+</html>
